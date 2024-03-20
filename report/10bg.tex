@@ -1,0 +1,21 @@
+\chapter{Background}
+Consider a function $f(x,y,z,t)$ which varies in the Cartesian
+coordinate $x$, $y$, $z$ and time $t$. To find the time derivative
+of $f(x,y,z,t)$ following the path of a specific fluid packet, I
+define the material derivative as:
+\begin{align}
+    \frac{Df}{Dt} &= \frac{\partial f}{\partial t}+\frac{\partial f}{\partial x}
+    \frac{\partial x}{\partial t}+\frac{\partial f}{\partial
+    y}\frac{\partial y}{\partial t}+\frac{\partial f}{\partial
+    z}\frac{\partial z}{\partial t}\notag\\
+    &= \frac{\partial f}{\partial
+    t}+(\mathbf{u}\cdot\nabla)f
+\end{align}
+where $\mathbf{u}$ is the velocity of the packet.
+
+Material derivative is commonly used in the problems of fluid
+mechanics.
+
+
+In the following sections I will derive some important equations for
+solving the problems in hydrodynamic stability.

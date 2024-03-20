@@ -1,0 +1,115 @@
+\section{Reyleigh's Stability Equation}
+To deal with the simple problem in hydrodynamic stability, adopt the
+small amplitude linear approximation to define the velocity,
+pressure, and assume the fluid is incompressible:
+\begin{subequations}\label{kh:ln}
+\begin{align}
+    \mathbf{u}(\mathbf{x},t)&=\mathbf{U}(z)+\mathbf{u}'(\mathbf{x},t)\label{kh:lnu}\\
+    p(\mathbf{x},t)&=P(z)+p'(\mathbf{x},t)\label{kh:lnp}\\
+    \rho&=\rho_0\quad\text{everywhere}\label{kh:lnrho}
+\end{align}
+\end{subequations}
+where $\mathbf{u}(\mathbf{x},t)$ and $p(\mathbf{x},t)$ is the
+velocity and pressure at different location and time,
+$\mathbf{U}(z)$ is the background velocity , $P(z)$ is the
+background pressure. The background fields only depend on $z$.
+$\mathbf{u}'(\mathbf{x},t)$ and $p'(\mathbf{x},t)$ are the perturbed
+velocity and pressure fields respectively.
+
+Then write the Navier-Stokes equation explicitly
+\begin{equation}\label{kh:nav}
+\frac{\partial}{\partial
+t}(\mathbf{U}(z)+\mathbf{u}')+(\mathbf{U}(z)+\mathbf{u}')
+\cdot\nabla(\mathbf{U}(z)+\mathbf{u}')=-\frac{\nabla(P(z)+p')}{\rho_0}-g\mathbf{k}
+\end{equation}
+Since $g=-(1/\rho_0)(\partial P/\partial z)$, the background
+pressure term and the gravitational force term canceled each other.
+\eqref{kh:nav} can be linearized by neglecting products of the small
+perturbed quantities (denotes by primes).
+\begin{equation}\label{kh:lin}
+(\frac{\partial}{\partial t}+U\frac{\partial}{\partial
+x})\mathbf{u}'+\frac{dU}{dz}w'\mathbf{i}=-\frac{\nabla p'}{\rho_0}
+\end{equation}
+where $\mathbf{u}' = (u',v',w')$. Since the equation has
+coefficients indepedent of $x$, $y$, $t$ but not $z$, I can separate
+the variables by taking independent normal modes of the form
+\begin{equation}\label{kh:modes}
+    \mathbf{u}'(\mathbf{x},t)=\hat{\mathbf{u}}(z)e^{i(\alpha x+\beta y-\alpha c t)},\qquad
+    p'(\mathbf{x},t)=\hat{p}(z)e^{i(\alpha x+\beta y-\alpha c t)}
+\end{equation}
+Together with \eqref{mass:cont3} the equation of continuity
+$\nabla\cdot\mathbf{u}=0$, \eqref{kh:lin} gives
+\begin{subequations}\label{kh:1}
+\begin{align}
+i\alpha(U-c)\hat{u}+\frac{dU}{dz}\hat{w}+\frac{i\alpha}{\rho_0}\hat{p}&=0\label{kh:1-1}\\
+i\alpha(U-c)\hat{v}+\frac{i\beta}{\rho_0}\hat{p}&=0\label{kh:1-2}\\
+i\alpha(U-c)\hat{w}+\frac{1}{\rho_0}\frac{d\hat{p}}{dz}&=0\label{kh:1-3}\\
+i\alpha\hat{u}+i\beta\hat{v}+\frac{d\hat{w}}{dz}&=0\label{kh:1-4}
+\end{align}
+\end{subequations}
+%-----------------------------------------------------------
+Apply the Squire's transformation
+\begin{equation}\label{kh:squire}
+    \tilde{\alpha}=(\alpha^2+\beta^2)^{1/2},\qquad
+\tilde{u}=(\alpha\hat{u}+\beta\hat{v})/\tilde{\alpha},\qquad
+\tilde{p}=\tilde{\alpha}\hat{p}/\alpha
+\end{equation}
+Then multiply \eqref{kh:1-1} by $\alpha$ and \eqref{kh:1-2} by
+$\beta$, take the sum and divide by $\alpha$ to get \eqref{kh:2-1}.
+\eqref{kh:1-3} and \eqref{kh:1-4} can be transformed in a similar
+way.
+\begin{subequations}\label{kh:2}
+\begin{align}
+i\tilde{\alpha}(U-c)\tilde{u}+\frac{dU}{dz}\hat{w}+\frac{i\tilde{\alpha}}{\rho_0}\tilde{p}&=0\label{kh:2-1}\\
+i\tilde{\alpha}(U-c)\hat{w}+\frac{1}{\rho_0}\frac{d\tilde{p}}{dz}&=0\label{kh:2-2}\\
+i\tilde{\alpha}\tilde{u}+\frac{d\hat{w}}{dz}&=0\label{kh:2-3}
+\end{align}
+\end{subequations}
+The three-dimensional mode in \eqref{kh:1} is essentially reduced to
+a two-dimensional mode of wave number vector
+$\boldsymbol{\alpha}=\alpha\mathbf{i}+\beta\mathbf{j}$, for
+$\tilde{\alpha}=\lvert\boldsymbol{\alpha}\rvert$ and
+$\tilde{u}=\hat{\boldsymbol{\alpha}}\cdot\hat{\mathbf{u}}$, where
+$\hat{\boldsymbol{\alpha}}=\boldsymbol{\alpha}/\tilde{\alpha}$. This
+represents a wave traveling in the direction of
+$\boldsymbol{\alpha}$. \eqref{kh:1} is the same as \eqref{kh:2} when
+$\beta=\hat{v}=0$.
+
+Introduce a perturbed stream function $\psi'$ into the linearized
+equations \eqref{kh:2}. Define that
+\begin{equation}\label{kh:str1}
+    u'=\frac{\partial\psi'}{\partial z},\qquad v'=0,\qquad w'=-\frac{\partial\psi'}{\partial x}
+\end{equation}
+and take independent normal modes of the form
+\begin{equation}\label{kh:modes2}
+    \psi'(x,z,t)=\phi(z)e^{i\alpha(x-ct)}
+\end{equation}
+It follows that
+\begin{equation}\label{kh:str2}
+    \hat{u}=\frac{d\phi}{dz},\qquad \hat{w}=-i\alpha\phi
+\end{equation}
+which will automatically satisfy the equation of continuity
+\eqref{kh:1-4}.
+
+From \eqref{kh:1-1},
+\begin{equation}\label{kh:3-1}
+    \frac{\hat{p}}{\rho_0}=\frac{dU}{dz}\phi-(U-c)\frac{d\phi}{dz}
+\end{equation}
+From \eqref{kh:1-3},
+\begin{equation}\label{kh:3-2}
+    (U-c)\alpha^2\phi+\frac{1}{\rho_0}\frac{d\hat{p}}{dz}=0
+\end{equation}
+Differentiate \eqref{kh:3-1} with respect to $z$ and substitute into
+\eqref{kh:3-2}, we get the Rayleigh's stability equation:
+\begin{equation}\label{kh:ray}
+    \boxed{(U-c)(\frac{d^2\phi}{dz^2}-\alpha^2\phi)-\frac{d^2U}{dz^2}\phi=0}
+\end{equation}
+For a piecewise linear velocity profile, the term $d^2U/dz^2$
+vanishes, the Rayleigh's stability equation reduces to a second
+order linear differential equation
+\begin{equation}\label{kh:ray2}
+    \frac{d^2\phi}{dz^2}-\alpha^2\phi=0
+\end{equation}
+
+The general solution is in the form $\phi = Ae^{-\alpha
+z}+Be^{\alpha z}$.

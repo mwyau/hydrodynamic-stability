@@ -1,0 +1,105 @@
+\subsection{Navier-Stokes Equation}
+The fundamental equation in fluid mechanics, Navier-Stokes equation,
+is derived from conservation of momentum.
+\begin{equation*}
+    \rho\frac{D u_i}{D t} = \rho f_i + \frac{\partial}{\partial
+    x_j}\sigma_{ij}
+\end{equation*}
+The stress tensor is symmetric and isotropic in a static fluid.
+Define the static stress as
+\begin{equation}\label{nav1}
+    \sigma_{ij}=-p\delta_{ij}
+\end{equation}
+\newslide
+In general, for a moving fluid we can expand $\sigma_{ij}$ into
+\begin{equation}\label{nav2}
+    \sigma_{ij}=-p\delta_{ij}+d_{ij}
+\end{equation}
+where $d_{ij}$ is due to the fluid motion alone, called the
+deviatoric stress tensor. $d_{ij}$ cannot be only related to the
+coordinate $x_j$ since it is independent of reference
+frame\footnote{If $d_{ij}$ only depends on $x_j$, upon changing to a
+co-moving frame with the fluid, $d_{ij}$ will be zero. But stress
+should be invariant from coordinate transformation.}. Use the
+Newtonian hypothesis that it is a linear function of $\partial
+u_i/\partial x_j$, we can express the relationship with a 4-th rank
+tensor:
+\begin{equation}\label{nav3}
+    d_{ij}=A_{ijkl}\frac{\partial u_k}{\partial x_l}
+\end{equation}
+\newslide
+$\partial u_i/\partial x_j$ can be decomposed into a symmetric and
+an antisymmetic part:
+\begin{align*}
+    \frac{\partial u_i}{\partial x_j}&=
+    \frac{1}{2}\Bigl(\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial
+    x_i}\Bigr)
+    +\frac{1}{2}\Bigl(\frac{\partial u_i}{\partial
+    x_j}-\frac{\partial u_j}{\partial
+    x_i}\Bigr)\\
+    &=\frac{1}{2}\Bigl(\frac{\partial u_i}{\partial x_j}+\frac{\partial u_j}{\partial
+    x_i}\Bigr)
+    -\frac{1}{2}\epsilon_{ijk}\,\omega_k
+\end{align*}
+where $\mathbf{\omega}=\nabla\times\mathbf{u}$ is the fluid
+vorticity. Define $e_{ij}=\dfrac{1}{2}\Bigl(\dfrac{\partial
+u_i}{\partial x_j}+\dfrac{\partial u_j}{\partial
+    x_i}\Bigr)$ and
+$\zeta_{ij}=-\frac{1}{2}\epsilon_{ijk}\,\omega_k$,
+\begin{equation}\label{nav4}
+    d_{ij}=A_{ijkl}\frac{\partial u_i}{\partial
+    x_j}=A_{ijkl}(e_{kl}+\zeta_{kl})
+\end{equation}
+\newslide
+Assume the fluid is isotropic in motion, that $d_{ij}$ is
+independent of the orientation of the fluid. Then $A_{ijkl}$ must
+also be isotropic. From Jeffreys \cite[p.70]{Tensor}, the general
+4th order isotropic tensor has the form
+\begin{equation}\label{nav5}
+    A_{ijkl}=\mu\delta_{ik}\delta_{jl}+\mu'\delta_{il}\delta_{jk}+\mu''\delta_{ij}\delta_{kl}
+\end{equation}
+Since the stress is symmetric,
+\begin{align}
+    \sigma_{ij}&=\sigma_{ji}\notag\\
+    \mu&=\mu'\notag\\
+    A_{ijkl}&=2\mu\delta_{ik}\delta_{jl}+\mu''\delta_{ij}\delta_{kl}
+\end{align}
+\newslide
+We can see that $A_{ijkl}$ is also symmetric in $l$ and $k$. Then
+\begin{align}
+    A_{ijkl}\zeta_{ij}&=-\frac{1}{2}A_{ijkl}\,\epsilon_{ijk}\,\omega_k=0\notag\\
+    d_{ij}&=A_{ijkl}e_{kl}\notag\\
+    &=(2\mu\delta_{ik}\delta_{jl}+\mu''\delta_{ij}\delta_{kl})e_{kl}\notag\\
+    &=2\mu e_{ij}+\mu''e_{ll}\delta_{ij}\notag\\
+    &=2\mu e_{ij}+\mu''\Delta\delta_{ij}
+\end{align}
+where $\Delta=\nabla\cdot\mathbf{u}$.
+\newslide
+By definition of $d_{ij}$,
+\begin{align}
+    \text{tr}(d_{ij})&\equiv 0 = d_{ii}\notag\\
+    d_{ii}&=2\mu e_{ii}+3\mu''\Delta=0\notag\\
+    \text{if $e_{ii}\neq 0$},\qquad \mu''&=-\frac{2}{3}\mu
+\end{align}
+Therefore
+\begin{align}
+    d_{ij}=2\mu(e_{ij}-\frac{1}{3}\Delta\delta_{ij})\notag\\
+    \sigma_{ij}=-p\delta_{ij}+2\mu(e_{ij}-\frac{1}{3}\Delta\delta_{ij})\label{nav6}
+\end{align}
+$\mu$ is called the molecular viscosity.
+\newslide
+Finally we get the Navier-Stokes equation by substituting
+\eqref{nav6} into the conservation of momentum equation:
+\begin{equation}\label{nav:eq}
+    \boxed{\rho\frac{D u_i}{D t} = \rho f_i - \frac{\partial p}{\partial
+    x_i}+\frac{\partial}{\partial x_j}\Bigl(2\mu(e_{ij}-\frac{1}{3}\Delta\delta_{ij})\Bigr)}
+\end{equation}
+If $\Delta=\nabla\cdot\mathbf{u}=0$, with $\mu$ is constant,
+\begin{equation}\label{nav:eq2}
+    \rho\frac{D u_i}{D t} = \rho f_i - \frac{\partial p}{\partial
+    x_i}+\mu\nabla^2 u_i
+\end{equation}
+Or in vector form:
+\begin{equation}\label{nav:eq3}
+    \rho\frac{D \mathbf{u}}{D t} = \rho \mathbf{f} - \nabla p + \mu\nabla^2 \mathbf{u}
+\end{equation}

@@ -1,0 +1,98 @@
+\section{Taylor-Goldstein Equation}
+To treat the problem with compressible fluid with variable density
+profile, the small amplitude linear approximations \eqref{kh:ln}
+were modified to:
+\begin{subequations}\label{kh:st}
+\begin{align}
+    \mathbf{u}(\mathbf{x},t)&=\mathbf{U}(z)+\mathbf{u}'(\mathbf{x},t)\label{kn:stu}\\
+    p(\mathbf{x},t)&=P(z)+p'(\mathbf{x},t)\label{kn:stp}\\
+    \rho(\mathbf{x},t)&=\rho(z)+\rho'(\mathbf{x},t)\label{kn:strho}
+\end{align}
+\end{subequations}
+where $\rho(z)$ is the background density which only depends on $z$.
+$\rho'(\mathbf{x},t)$ is the perturbed density from the background.
+
+Apply the Boussinesq approximation that the variation in density
+only appears in the buoyancy term, the Navier-Stokes equation
+\eqref{kh:nav} was modified to
+\begin{equation}\label{kh:nav2}
+\frac{\partial}{\partial
+t}(\mathbf{U}(z)+\mathbf{u}')+(\mathbf{U}(z)+\mathbf{u}')
+\cdot\nabla(\mathbf{U}(z)+\mathbf{u}')=-\frac{\nabla(P(z)+p')}{\rho_0}
+-\frac{g}{\rho_0}(\rho(z)+\rho')\mathbf{k}
+\end{equation}
+Here $g\rho/\rho_0=-(1/\rho_0)(\partial P/\partial z)$, thus the
+background pressure term and the gravitational force term canceled
+each other again.
+
+Then linearize \eqref{kh:nav2} by neglecting products of the small
+perturbed quantities.
+\begin{equation}\label{kh:str}
+(\frac{\partial}{\partial t}+U\frac{\partial}{\partial
+x})\mathbf{u}'+\frac{dU}{dz}w'\mathbf{i}=-\frac{\nabla
+p'}{\rho_0}-\frac{g\rho'}{\rho_0}\mathbf{k}
+\end{equation}
+where $\mathbf{u}' = (u',0,w')$.
+
+Assume there is no diffusion taking place in the flow, the density
+must be kept constant during movement $D\rho/Dt=0$,
+\begin{equation*}
+    \frac{\partial}{\partial
+    t}(\rho+\rho')+(\mathbf{U}+\mathbf{u}')\nabla(\rho+\rho')=0
+\end{equation*}
+Linearizing and dropping the second order perturbed terms,
+\begin{equation*}
+    \frac{\partial}{\partial
+    t}\rho'+U\frac{\partial\rho'}{\partial
+    x}+w'\frac{d\rho}{dz}=0
+\end{equation*}
+Define the Brunt-V\"{a}is\"{a}l\"{a} frequency
+$N^2\equiv-(g/\rho_0)(d\rho/dz)$ as a constant\footnote{The density
+profile is $\rho_0e^{-z/H}$ where $H$ is a scale height.}, then
+\begin{equation}\label{tay:bv}
+    \frac{\partial}{\partial
+    t}\rho'+U\frac{\partial\rho'}{\partial
+    x}-\frac{\rho_0N^2}{g}w'=0
+\end{equation}
+Since the equation has coefficients independent of $x$, $t$ but not
+$z$, I can separate the variables by taking independent normal modes
+of the form
+\begin{equation}\label{kh:modes3}
+    \mathbf{u}'(\mathbf{x},t)=\hat{\mathbf{u}}(z)e^{i(\alpha x-\alpha c t)},\qquad
+    p'(\mathbf{x},t)=\hat{p}(z)e^{i(\alpha x-\alpha c t)},\qquad
+    \rho'(\mathbf{x},t)=\hat{\rho}(z)e^{i(\alpha x-\alpha c t)}
+\end{equation}
+\eqref{tay:bv} and \eqref{kh:str} gives
+\begin{subequations}\label{kh:s1}
+\begin{align}
+i\alpha(U-c)\hat{u}+\frac{dU}{dz}\hat{w}+\frac{i\alpha}{\rho_0}\hat{p}&=0\label{kh:s1-1}\\
+i\alpha(U-c)\hat{w}+\frac{1}{\rho_0}\frac{d\hat{p}}{dz}+\frac{g}{\rho_0}\hat{\rho}&=0\label{kh:s1-2}\\
+i\alpha(U-c)\hat{\rho}-\frac{\rho_0N^2}{g}\hat{w}&=0\label{kh:s1-3}
+\end{align}
+\end{subequations}
+To satisfy the equation of continuity, use the definition from
+\eqref{kh:str1}, \eqref{kh:modes2} and \eqref{kh:str2}, it turns out
+to be
+\begin{subequations}\label{kh:s2}
+\begin{align}
+(U-c)\frac{d\phi}{dz}-\frac{dU}{dz}\phi+\frac{\hat{p}}{\rho_0}&=0\label{kh:s2-1}\\
+\alpha^2(U-c)\phi+\frac{1}{\rho_0}\frac{d\hat{p}}{dz}+\frac{g}{\rho_0}\hat{\rho}&=0\label{kh:s2-2}\\
+(U-c)\hat{\rho}+\frac{\rho_0N^2}{g}\phi&=0\label{kh:s2-3}
+\end{align}
+\end{subequations}
+From \eqref{kh:s2-3},
+\begin{equation}\label{kh:s3}
+    \frac{g}{\rho_0}\hat{\rho}=-\frac{N^2\phi}{U-c}
+\end{equation}
+
+Differentiate \eqref{kh:s2-1} with respect to $z$ and substitute
+with \eqref{kh:s3} into \eqref{kh:s2-2}, we get the Taylor-Goldstein
+equation:
+\begin{equation}\label{tay:eq}
+    \boxed{(\frac{d^2}{dz^2}-\alpha^2)\phi-\frac{d^2U/dz^2}{U-c}\phi+\frac{N^2\phi}{(U-c)^2}=0}
+\end{equation}
+For a piecewise linear velocity profile, the term $d^2U/dz^2$
+vanishes, the Taylor-Goldstein equation reduces to
+\begin{equation}\label{tay:eq2}
+    \frac{d^2\phi}{dz^2}-\Bigl(\alpha^2-\frac{N^2}{(U-c)^2}\Bigr)\phi=0
+\end{equation}
